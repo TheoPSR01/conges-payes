@@ -1,0 +1,40 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "conges-payes"
+version = "0.1.0"
+description = "Congés payés en France : jours acquis, arrêts maladie (loi du 22 avril 2024), indemnité du dixième ou maintien de salaire"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+authors = [{ name = "Théo Pasquier" }]
+keywords = ["congés payés", "droit du travail", "arrêt maladie", "indemnité de congés", "paie", "France"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: End Users/Desktop",
+    "Natural Language :: French",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Topic :: Office/Business :: Financial",
+]
+dependencies = []
+
+[project.optional-dependencies]
+dev = ["pytest>=7"]
+
+[project.scripts]
+conges-payes = "conges_payes.__main__:main"
+
+[project.urls]
+Homepage = "https://github.com/TheoPSR01/conges-payes"
+Issues = "https://github.com/TheoPSR01/conges-payes/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/conges_payes"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
